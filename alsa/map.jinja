@@ -1,0 +1,8 @@
+{% set map = salt['grains.filter_by']({
+    'Debian': {
+        'pkgs': ['alsa-utils'],
+        'asound_state_dir': '/var/lib/alsa',
+        'asound_state_file': 'asound.state',
+    },
+
+}, grain='os', merge=salt['pillar.get']('alsa:lookup')) %}
